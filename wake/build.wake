@@ -1,0 +1,50 @@
+def scalacOpts =
+  "-deprecation",
+  "-feature",
+  "-unchecked",
+  "-language:reflectiveCalls",
+  "-Xsource:2.11",
+  Nil
+
+global def socFreedomSifiveRoot = simplify "{here}/.."
+  
+global def e300ScalaModule =
+  def name = "e300"
+  def scalaVersion = rocketchipScalaModule.getScalaModuleScalaVersion
+  def dir = "{socFreedomSifiveRoot}/craft/e300"
+  makeScalaModule name dir scalaVersion
+  | setScalaModuleSourceDirs ("src", Nil)
+  | setScalaModuleResourceDirs ("resources", Nil)
+  | setScalaModuleDeps (
+    fpgaShellsScalaModule,
+    sifiveBlocksScalaModule,
+    rocketchipScalaModule,
+    Nil
+  )
+  | setScalaModuleScalacOptions ("-Xsource:2.11", Nil)
+
+global def u500ScalaModule =
+  def name = "u500"
+  def dir = "{socFreedomSifiveRoot}/craft/u500"
+  e300ScalaModule
+  | setScalaModuleRootDir dir
+  | setScalaModuleName name
+
+global def u500VC707DUTPlan =
+  def name = "u500VC707DUTPlan"
+  def testharness = "sifive.fpgashells.shell.xilinx.VC707Shell"
+  def configs =
+    "sifive.freedom.unleashed.DevKitU500FPGADesign",
+    "sifive.freedom.unleashed.WithDevKit50MHz",
+    Nil
+  makeRocketChipDUTPlan name u500ScalaModule testharness ""
+  | setRocketChipDUTPlanConfigs configs
+
+global def e300ArtyDUTPlan =
+  def name = "e300ArtyDUTPlan"
+  def testharness = "sifive.freedom.everywhere.e300artydevkit.E300ArtyDevKitFPGAChip"
+  def configs =
+    "sifive.freedom.everywhere.e300artydevkit.E300ArtyDevKitConfig",
+    Nil
+  makeRocketChipDUTPlan name e300ScalaModule testharness ""
+  | setRocketChipDUTPlanConfigs configs

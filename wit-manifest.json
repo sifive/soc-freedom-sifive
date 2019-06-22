@@ -1,0 +1,27 @@
+[
+    {
+        "commit": "c68265841d0f2281c1519b9820197657a8afd6bd",
+        "name": "soc-iofpga-sifive",
+        "source": "git@github.com:sifive/soc-iofpga-sifive.git"
+    },
+    {
+        "commit": "718d51e76eee5ea5c40c99a17ab95b6b6c6d099d",
+        "name": "api-generator-sifive",
+        "source": "git@github.com:sifive/api-generator-sifive.git"
+    },
+    {
+        "commit": "ef278419f5866f7530ec8e56da9fffbc6e75a3fd",
+        "name": "fpga-shells",
+        "source": "git@github.com:sifive/fpga-shells.git"
+    },
+    {
+        "commit": "58a2f90a376aaa07e73532b86cfcc686733a8893",
+        "name": "sifive-blocks",
+        "source": "git@github.com:sifive/sifive-blocks.git"
+    },
+    {
+        "commit": "dcfcf02f27d787615c515988a26202f0f6a0d11a",
+        "name": "rocket-chip-wake",
+        "source": "git@github.com:sifive/rocket-chip-wake.git"
+    }
+]
