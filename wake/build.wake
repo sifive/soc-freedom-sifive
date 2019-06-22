@@ -19,6 +19,7 @@ global def e300ScalaModule =
     fpgaShellsScalaModule,
     sifiveBlocksScalaModule,
     rocketchipScalaModule,
+    inclusiveCacheScalaModule,
     Nil
   )
   | setScalaModuleScalacOptions ("-Xsource:2.11", Nil)
