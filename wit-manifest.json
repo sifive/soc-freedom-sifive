@@ -1,11 +1,11 @@
 [
     {
-        "commit": "c68265841d0f2281c1519b9820197657a8afd6bd",
+        "commit": "616016c7a377f858c06dcdee200032f43f5a25d9",
         "name": "soc-iofpga-sifive",
         "source": "git@github.com:sifive/soc-iofpga-sifive.git"
     },
     {
-        "commit": "718d51e76eee5ea5c40c99a17ab95b6b6c6d099d",
+        "commit": "50b9d6ffdfbff683fa25045d7f1ef3585a34f2dc",
         "name": "api-generator-sifive",
         "source": "git@github.com:sifive/api-generator-sifive.git"
     },
@@ -15,17 +15,17 @@
         "source": "git@github.com:sifive/fpga-shells.git"
     },
     {
-        "commit": "58a2f90a376aaa07e73532b86cfcc686733a8893",
+        "commit": "4c8a6608af4b7556e5c0f006590f4f13aa445ce6",
         "name": "sifive-blocks",
         "source": "git@github.com:sifive/sifive-blocks.git"
     },
     {
-        "commit": "dcfcf02f27d787615c515988a26202f0f6a0d11a",
-        "name": "rocket-chip-wake",
-        "source": "git@github.com:sifive/rocket-chip-wake.git"
+        "commit": "50de8a34c19c12de5066cd7ada50ebb5f5b2ea26",
+        "name": "rocket-chip",
+        "source": "git@github.com:chipsalliance/rocket-chip.git"
     },
     {
-        "commit": "08217a558255ad63bd29c94fdc59a923c32c4175",
+        "commit": "7d3f880937087f9518241d6c81b240c53763b429",
         "name": "block-inclusivecache-sifive",
         "source": "git@github.com:sifive/block-inclusivecache-sifive.git"
     }

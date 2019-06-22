@@ -22,7 +22,7 @@ import sifive.blocks.devices.i2c._
 //-------------------------------------------------------------------------
 
 class E300ArtyDevKitSystem(implicit p: Parameters) extends RocketSubsystem
-    with HasPeripheryMaskROMSlave
+    with HasHierarchicalBusTopology
     with HasPeripheryDebug
     with HasPeripheryMockAON
     with HasPeripheryUART

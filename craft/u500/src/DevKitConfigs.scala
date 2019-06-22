@@ -6,6 +6,7 @@ import freechips.rocketchip.subsystem._
 import freechips.rocketchip.devices.debug._
 import freechips.rocketchip.devices.tilelink._
 import freechips.rocketchip.diplomacy._
+import freechips.rocketchip.subsystem._
 import freechips.rocketchip.system._
 import freechips.rocketchip.tile._
 
@@ -15,6 +16,7 @@ import sifive.blocks.devices.uart._
 
 // Default FreedomU500Config
 class FreedomU500Config extends Config(
+  new WithInclusiveCache ++
   new WithJtagDTM            ++
   new WithNMemoryChannels(1) ++
   new WithNBigCores(4)       ++
@@ -38,12 +40,6 @@ class U500DevKitConfig extends Config(
   new WithNExtTopInterrupts(0)   ++
   new U500DevKitPeripherals ++
   new FreedomU500Config().alter((site,here,up) => {
-    case SystemBusKey => up(SystemBusKey).copy(
-      errorDevice = Some(DevNullParams(
-        Seq(AddressSet(0x3000, 0xfff)),
-        maxAtomic=site(XLen)/8,
-        maxTransfer=128,
-        region = RegionType.TRACKED)))
     case PeripheryBusKey => up(PeripheryBusKey, site).copy(frequency =
       BigDecimal(site(DevKitFPGAFrequencyKey)*1000000).setScale(0, BigDecimal.RoundingMode.HALF_UP).toBigInt,
       errorDevice = None)

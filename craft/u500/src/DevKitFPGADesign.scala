@@ -64,19 +64,8 @@ class DevKitWrapper()(implicit p: Parameters) extends LazyModule
 
 case object DevKitFPGAFrequencyKey extends Field[Double](100.0)
 
-case object PeripheryMaskROMKey extends Field[Seq[MaskROMParams]](Nil)
-
-trait HasPeripheryMaskROMSlave { this: BaseSubsystem =>
-  val maskROMParams = p(PeripheryMaskROMKey)
-  val maskROMs = maskROMParams map { params =>
-    val maskROM = LazyModule(new TLMaskROM(params))
-    sbus.toFixedWidthSingleBeatSlave(maskROM.beatBytes, Some("MaskROM")) { maskROM.node }
-    maskROM
-  }
-}
-
 class DevKitFPGADesign(wranglerNode: ClockAdapterNode, corePLL: PLLNode)(implicit p: Parameters) extends RocketSubsystem
-    with HasPeripheryMaskROMSlave
+    with HasHierarchicalBusTopology
     with HasPeripheryDebug
 {
   val tlclock = new FixedClockResource("tlclk", p(DevKitFPGAFrequencyKey))
@@ -105,7 +94,7 @@ class DevKitFPGADesign(wranglerNode: ClockAdapterNode, corePLL: PLLNode)(implici
 
   // TODO: currently, only hook up one memory channel
   val ddr = p(DDROverlayKey).headOption.map(_(DDROverlayParams(p(ExtMem).get.master.base, wranglerNode, corePLL)))
-  ddr.get := mbus.toDRAMController(Some("xilinxvc707mig"))()
+  ddr.get := TLFragmenter(64,128,holdFirstDeny=true) := mbus.toDRAMController(Some("xilinxvc707mig"))()
 
   // Work-around for a kernel bug (command-line ignored if /chosen missing)
   val chosen = new DeviceSnippet {
