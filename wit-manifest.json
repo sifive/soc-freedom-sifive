@@ -23,5 +23,10 @@
         "commit": "dcfcf02f27d787615c515988a26202f0f6a0d11a",
         "name": "rocket-chip-wake",
         "source": "git@github.com:sifive/rocket-chip-wake.git"
+    },
+    {
+        "commit": "cac69b510fb19971a11d144bc7fe74ea6baee2dc",
+        "name": "block-inclusivecache-sifive",
+        "source": "git@github.com:sifive/block-inclusivecache-sifive.git"
     }
 ]
