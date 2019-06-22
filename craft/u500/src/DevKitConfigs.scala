@@ -6,6 +6,7 @@ import freechips.rocketchip.subsystem._
 import freechips.rocketchip.devices.debug._
 import freechips.rocketchip.devices.tilelink._
 import freechips.rocketchip.diplomacy._
+import freechips.rocketchip.subsystem._
 import freechips.rocketchip.system._
 import freechips.rocketchip.tile._
 
@@ -15,6 +16,7 @@ import sifive.blocks.devices.uart._
 
 // Default FreedomU500Config
 class FreedomU500Config extends Config(
+  new WithInclusiveCache ++
   new WithJtagDTM            ++
   new WithNMemoryChannels(1) ++
   new WithNBigCores(4)       ++
