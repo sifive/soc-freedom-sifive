@@ -9,14 +9,14 @@ wake --init .
 ```
 
 # Compiling scala
-for e300:
+for e300
 ```
 wake -v compileScalaModule e300ScalaModule
 ```
 
-for u500:
+for u500
 ```
-wake -v compileScalaModule e300ScalaModule
+wake -v compileScalaModule u500ScalaModule
 ```
 
 # Generating verilog
