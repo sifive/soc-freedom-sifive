@@ -1,6 +1,6 @@
 [
     {
-        "commit": "16ac058a58647780aee2c5e31a7057cdde8ece5c",
+        "commit": "5bb8e804afa8d4d0379e06bccd3eb964972446a4",
         "name": "soc-iofpga-sifive",
         "source": "git@github.com:sifive/soc-iofpga-sifive.git"
     },
@@ -10,7 +10,7 @@
         "source": "git@github.com:sifive/api-generator-sifive.git"
     },
     {
-        "commit": "1f6ac273be2a3fd0d1ca0ff2207801d5d49e52a5",
+        "commit": "2caf8a943014f544ff938e6950d0660c81ca349d",
         "name": "fpga-shells",
         "source": "git@github.com:sifive/fpga-shells.git"
     },
