@@ -21,6 +21,7 @@ addons:
     - gmp
     - re2
     - pkgconfig
+    - verilator
     - libtool
     - protobuf
     casks:
