@@ -4,7 +4,7 @@ e300 and u500 devkits
 # Initializing the workspace
 ```
 wit init workspace -a git@github.com:sifive/soc-freedom-sifive.git
-cd workspcae
+cd workspace
 wake --init .
 ```
 

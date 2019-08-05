@@ -46,17 +46,5 @@ install:
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then source continuous-integration/travis/install_deps_osx.sh; fi
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then source continuous-integration/travis/install_deps_linux.sh; fi
 
-jobs:
-  include:
-    - stage: "Compile"
-      name: "Compiling Scala for E300"
-      script: wake -v compileScalaModule e300ScalaModule
-    - stage: "Compile"
-      name: "Compiling Scala for U500"
-      script: wake -v compileScalaModule u500ScalaModule
-    - stage: test
-      name: "Generating Verilog for E300"
-      script: wake -v makeRTL e300ArtyDUTPlan
-    - stage: test
-      name: "Generating Verilog for U500"
-      script: wake -v makeRTL u500VC707DUTPlan
+script: ./continuous-integration/travis/test.sh
+
