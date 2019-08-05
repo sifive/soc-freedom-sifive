@@ -1,7 +1,5 @@
 #!/bin/sh -x
 
-set -e
-
 echo "Initialize Workspace"
 
 git config --global url."https://github.com/".insteadOf 'git@github.com:'
