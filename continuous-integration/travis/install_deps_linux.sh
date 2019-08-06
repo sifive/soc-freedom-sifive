@@ -21,9 +21,3 @@ echo "Installing Wit"
 
 git clone https://github.com/sifive/wit.git
 export PATH=$PATH:$PWD/wit
-
-echo "Install Verilator"
-
-curl -o /tmp/verilator.deb -L https://github.com/sifive/verilator/releases/download/4.016-0sifive1/verilator_4.016-0sifive1_amd64.deb
-sudo apt install -y /tmp/verilator.deb
-rm /tmp/verilator.deb
