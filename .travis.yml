@@ -42,6 +42,7 @@ addons:
     - g++
     - gcc
     - libtool-bin
+    - protobuf-compiler
 
 install:
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then source continuous-integration/travis/install_deps_osx.sh; fi
