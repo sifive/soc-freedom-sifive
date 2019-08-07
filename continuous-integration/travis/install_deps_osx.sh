@@ -12,5 +12,5 @@ cd ..
 
 echo "Installing Wit"
 
-git clone https://github.com/sifive/wit.git
+git clone --branch=v0.10.1 --depth=1 https://github.com/sifive/wit.git
 export PATH=$PATH:$PWD/wit
