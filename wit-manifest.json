@@ -5,7 +5,7 @@
         "source": "git@github.com:sifive/soc-iofpga-sifive.git"
     },
     {
-        "commit": "50b9d6ffdfbff683fa25045d7f1ef3585a34f2dc",
+        "commit": "40dbdf2327088b1f42974e1dc5cfe646bebdb08f",
         "name": "api-generator-sifive",
         "source": "git@github.com:sifive/api-generator-sifive.git"
     },
@@ -28,5 +28,10 @@
         "commit": "7d3f880937087f9518241d6c81b240c53763b429",
         "name": "block-inclusivecache-sifive",
         "source": "git@github.com:sifive/block-inclusivecache-sifive.git"
+    },
+    {
+        "commit": "1c38068e5338dce8594f3aef0466c6333f46a24d",
+        "name": "api-scala-sifive",
+        "source": "git@github.com:sifive/api-scala-sifive.git"
     }
 ]
