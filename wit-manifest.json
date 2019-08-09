@@ -1,10 +1,5 @@
 [
     {
-        "commit": "5bb8e804afa8d4d0379e06bccd3eb964972446a4",
-        "name": "soc-iofpga-sifive",
-        "source": "git@github.com:sifive/soc-iofpga-sifive.git"
-    },
-    {
         "commit": "40dbdf2327088b1f42974e1dc5cfe646bebdb08f",
         "name": "api-generator-sifive",
         "source": "git@github.com:sifive/api-generator-sifive.git"
