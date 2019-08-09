@@ -33,23 +33,21 @@ global def u500ScalaModule =
 
 global def u500VC707DUTPlan =
   def name = "u500VC707DUTPlan"
-  def configs =
-    "sifive.freedom.unleashed.DevKitU500FPGADesign",
-    Nil
+  def testharness = "sifive.fpgashells.shell.xilinx.VC707Shell"
+  def configs = "sifive.freedom.unleashed.DevKitU500FPGADesign", Nil
   def frequency = 50
-  def scalModules = u500ScalaModule, Nil
-  makeVC707DUTPlan name frequency configs scalModules
+  def scalModules = Nil
+  makeFPGADevKitDUTPlan name frequency configs scalModules
+  | setRocketChipDUTPlanTestharness testharness 
 
 global def u500VCU118DUTPlan =
   def name = "u500VCU118DUTPlan"
   def testharness = "sifive.fpgashells.shell.xilinx.VCU118Shell"
-  def configs =
-    "sifive.freedom.unleashed.DevKitU500FPGADesign",
-    "sifive.freedom.unleashed.WithDevKit50MHz",
-    Nil
+  def configs = "sifive.freedom.unleashed.DevKitU500FPGADesign", Nil
   def frequency = 50
-  def scalModules = u500ScalaModule, Nil
-  makeVCU118DUTPlan name frequency configs scalModules
+  def scalModules = Nil
+  makeFPGADevKitDUTPlan name frequency configs scalModules
+  | setRocketChipDUTPlanTestharness testharness 
 
 global def e300ArtyDUTPlan =
   def name = "e300ArtyDUTPlan"
@@ -71,7 +69,7 @@ def devKitFrequencyConfig = match _
     def _ = printLevel logError "FPGADevKit: {str frequency} is not a valid frequency"
     "INVALID.FREQUENCY.CONFIG"
 
-global def makeVC707DUTPlan name frequency designConfigs designScalaModules =
+global def makeFPGADevKitDUTPlan name frequency designConfigs designScalaModules =
   def testharness = "sifive.fpgashells.shell.xilinx.VC707Shell"
   def configs =
     def frequencyConfig = devKitFrequencyConfig frequency
@@ -81,8 +79,3 @@ global def makeVC707DUTPlan name frequency designConfigs designScalaModules =
   makeRocketChipDUTPlan name u500ScalaModule testharness ""
   | setRocketChipDUTPlanScalaModules scalaModules
   | setRocketChipDUTPlanConfigs configs
-
-global def makeVCU118DUTPlan name frequency designConfigs designScalaModules =
-  def testharness = "sifive.fpgashells.shell.xilinx.VCU118Shell"
-  makeVC707DUTPlan name frequency designConfigs designScalaModules
-  | setRocketChipDUTPlanTestharness testharness
