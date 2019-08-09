@@ -77,8 +77,8 @@ global def makeVC707DUTPlan name frequency designConfigs designScalaModules =
     def frequencyConfig = devKitFrequencyConfig frequency
     designConfigs ++ (frequencyConfig, Nil)
   def scalaModules =
-    designScalaModules ++ (fpgaDevKitScalaModule, Nil)
-  makeRocketChipDUTPlan name fpgaDevKitScalaModule testharness ""
+    designScalaModules ++ (u500ScalaModule, Nil)
+  makeRocketChipDUTPlan name u500ScalaModule testharness ""
   | setRocketChipDUTPlanScalaModules scalaModules
   | setRocketChipDUTPlanConfigs configs
 
