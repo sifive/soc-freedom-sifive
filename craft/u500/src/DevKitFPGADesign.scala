@@ -158,3 +158,7 @@ class DevKitU500FPGADesign extends Config(
   new U500DevKitConfig().alter((site, here, up) => {
     case DesignKey => { (p:Parameters) => new DevKitWrapper()(p) }
   }))
+
+class WithFPGADevKitDesign extends Config((site, here, up) => {
+  case DesignKey => { (p:Parameters) => new DevKitWrapper()(p) }
+})
