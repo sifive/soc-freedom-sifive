@@ -41,6 +41,16 @@ global def u500VC707DUTPlan =
   makeRocketChipDUTPlan name u500ScalaModule testharness ""
   | setRocketChipDUTPlanConfigs configs
 
+global def u500VCU118DUTPlan =
+  def name = "u500VCU118DUTPlan"
+  def testharness = "sifive.fpgashells.shell.xilinx.VCU118Shell"
+  def configs =
+    "sifive.freedom.unleashed.DevKitU500FPGADesign",
+    "sifive.freedom.unleashed.WithDevKit50MHz",
+    Nil
+  makeRocketChipDUTPlan name u500ScalaModule testharness ""
+  | setRocketChipDUTPlanConfigs configs
+
 global def e300ArtyDUTPlan =
   def name = "e300ArtyDUTPlan"
   def testharness = "sifive.freedom.everywhere.e300artydevkit.E300ArtyDevKitFPGAChip"
