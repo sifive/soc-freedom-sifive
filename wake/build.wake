@@ -7,7 +7,7 @@ def scalacOpts =
   Nil
 
 global def socFreedomSifiveRoot = simplify "{here}/.."
-  
+
 global def e300ScalaModule =
   def name = "e300"
   def scalaVersion = rocketchipScalaModule.getScalaModuleScalaVersion
@@ -38,7 +38,7 @@ global def u500VC707DUTPlan =
   def frequency = 50
   def scalaModule = u500ScalaModule
   makeRocketChipDUTPlan name scalaModule testharness config
-  | setRocketChipDUTPlanTestharness testharness 
+  | setRocketChipDUTPlanTestharness testharness
   | addFPGADevKitFrequencyConfig frequency
 
 global def u500VCU118DUTPlan =
@@ -48,7 +48,7 @@ global def u500VCU118DUTPlan =
   def frequency = 50
   def scalaModule = u500ScalaModule
   makeRocketChipDUTPlan name scalaModule testharness config
-  | setRocketChipDUTPlanTestharness testharness 
+  | setRocketChipDUTPlanTestharness testharness
   | addFPGADevKitFrequencyConfig frequency
 
 global def e300ArtyDUTPlan =
