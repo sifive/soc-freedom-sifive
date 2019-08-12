@@ -68,6 +68,15 @@ def devKitFrequencyConfig = match _
     def _ = printLevel logError "FPGADevKit: {str frequency} is not a valid frequency"
     "INVALID.FREQUENCY.CONFIG"
 
+# adds an FPGADevKit frequency to a ``RocketChipDUTPlan``
+#
+# Args:
+#   frequency: An ``Integer`` for the desired MHz
+#   plan: The ``RocketChipDUTPlan`` to add the config and ``ScalaModule`` to
+#
+# Returns:
+#   A ``RocketChipDUTPlan`` built from the input plan with the config
+#   and `ScalaModule`` corresponding to the input frequency appended
 global def addFPGADevKitFrequencyConfig frequency plan =
   def configs = devKitFrequencyConfig frequency, Nil
   def scalaModules = u500ScalaModule, Nil
