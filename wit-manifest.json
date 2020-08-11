@@ -1,31 +1,21 @@
 [
     {
-        "commit": "40dbdf2327088b1f42974e1dc5cfe646bebdb08f",
+        "commit": "345deea1bc819255e9e29a2b1c1d6e0a5c0a362d",
         "name": "api-generator-sifive",
         "source": "git@github.com:sifive/api-generator-sifive.git"
     },
     {
-        "commit": "2caf8a943014f544ff938e6950d0660c81ca349d",
+        "commit": "8de0b7b29f781e346d52503400a60f3ddb6ed4a6",
         "name": "fpga-shells",
         "source": "git@github.com:sifive/fpga-shells.git"
     },
     {
-        "commit": "4374e58fc282f9670605ce5a741436d18242e520",
-        "name": "sifive-blocks",
-        "source": "git@github.com:sifive/sifive-blocks.git"
-    },
-    {
-        "commit": "50de8a34c19c12de5066cd7ada50ebb5f5b2ea26",
-        "name": "rocket-chip",
-        "source": "git@github.com:chipsalliance/rocket-chip.git"
-    },
-    {
-        "commit": "7d3f880937087f9518241d6c81b240c53763b429",
+        "commit": "d4db623ff534f775ffc49f59c4a9ef24d5d759d0",
         "name": "block-inclusivecache-sifive",
         "source": "git@github.com:sifive/block-inclusivecache-sifive.git"
     },
     {
-        "commit": "1c38068e5338dce8594f3aef0466c6333f46a24d",
+        "commit": "e5d463cd9d131033396a9d8921440abb55f114cd",
         "name": "api-scala-sifive",
         "source": "git@github.com:sifive/api-scala-sifive.git"
     }
