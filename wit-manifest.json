@@ -1,6 +1,6 @@
 [
     {
-        "commit": "40dbdf2327088b1f42974e1dc5cfe646bebdb08f",
+        "commit": "345deea1bc819255e9e29a2b1c1d6e0a5c0a362d",
         "name": "api-generator-sifive",
         "source": "git@github.com:sifive/api-generator-sifive.git"
     },
@@ -13,11 +13,6 @@
         "commit": "4374e58fc282f9670605ce5a741436d18242e520",
         "name": "sifive-blocks",
         "source": "git@github.com:sifive/sifive-blocks.git"
-    },
-    {
-        "commit": "50de8a34c19c12de5066cd7ada50ebb5f5b2ea26",
-        "name": "rocket-chip",
-        "source": "git@github.com:chipsalliance/rocket-chip.git"
     },
     {
         "commit": "7d3f880937087f9518241d6c81b240c53763b429",
