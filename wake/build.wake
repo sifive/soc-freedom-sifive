@@ -1,11 +1,3 @@
-def scalacOpts =
-  "-deprecation",
-  "-feature",
-  "-unchecked",
-  "-language:reflectiveCalls",
-  "-Xsource:2.11",
-  Nil
-
 global def socFreedomSifiveRoot = simplify "{here}/.."
 
 global def e300ScalaModule =
