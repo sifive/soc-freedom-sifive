@@ -10,7 +10,7 @@
         "source": "git@github.com:sifive/fpga-shells.git"
     },
     {
-        "commit": "7d3f880937087f9518241d6c81b240c53763b429",
+        "commit": "d4db623ff534f775ffc49f59c4a9ef24d5d759d0",
         "name": "block-inclusivecache-sifive",
         "source": "git@github.com:sifive/block-inclusivecache-sifive.git"
     },
