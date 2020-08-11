@@ -47,7 +47,7 @@ class E300DevKitPeripherals extends Config((site, here, up) => {
     I2CParams(address = 0x10016000))
   case PeripheryMockAONKey =>
     MockAONParams(address = 0x10000000)
-  case PeripheryMaskROMKey => List(
+  case MaskROMLocated(InSubsystem) => List(
     MaskROMParams(address = 0x10000, name = "BootROM"))
 })
 
