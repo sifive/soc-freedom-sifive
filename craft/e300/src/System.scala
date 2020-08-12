@@ -34,8 +34,13 @@ class E300ArtyDevKitSystem(implicit p: Parameters) extends RocketSubsystem
   val maskROMConfigs = p(MaskROMLocated(location))
   val maskRoms = maskROMConfigs.map { MaskROM.attach(_, this, CBUS) }
 
-  val boot = BundleBridgeSource(() => UInt(32.W))
-  tileResetVectorNexusNode := boot
+  val boot = if (maskRoms.isEmpty) {
+    None
+  } else {
+    val boot = BundleBridgeSource(() => UInt(32.W))
+    tileResetVectorNexusNode := boot
+    Some(boot)
+  }
 
   override lazy val module = new E300ArtyDevKitSystemModule(this)
 }
@@ -51,5 +56,5 @@ class E300ArtyDevKitSystemModule[+L <: E300ArtyDevKitSystem](_outer: L)
     with HasPeripheryI2CModuleImp
     with HasPeripheryMockAONModuleImp {
 
-  outer.boot.bundle := outer.maskROMConfigs.head.address.U
+  outer.boot.foreach { _.bundle := outer.maskROMConfigs.head.address.U }
 }
