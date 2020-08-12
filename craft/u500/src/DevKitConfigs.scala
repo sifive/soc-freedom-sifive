@@ -16,10 +16,11 @@ import sifive.blocks.devices.uart._
 
 // Default FreedomU500Config
 class FreedomU500Config extends Config(
-  new WithInclusiveCache ++
-  new WithJtagDTM            ++
-  new WithNMemoryChannels(1) ++
-  new WithNBigCores(4)       ++
+  new WithCoherentBusTopology ++
+  new WithInclusiveCache      ++
+  new WithJtagDTM             ++
+  new WithNMemoryChannels(1)  ++
+  new WithNBigCores(4)        ++
   new BaseConfig
 )
 
@@ -40,8 +41,8 @@ class U500DevKitConfig extends Config(
   new WithNExtTopInterrupts(0)   ++
   new U500DevKitPeripherals ++
   new FreedomU500Config().alter((site,here,up) => {
-    case PeripheryBusKey => up(PeripheryBusKey, site).copy(frequency =
-      BigDecimal(site(DevKitFPGAFrequencyKey)*1000000).setScale(0, BigDecimal.RoundingMode.HALF_UP).toBigInt,
+    case PeripheryBusKey => up(PeripheryBusKey, site).copy(
+      dtsFrequency = Some(BigDecimal(site(DevKitFPGAFrequencyKey)*1000000).setScale(0, BigDecimal.RoundingMode.HALF_UP).toBigInt),
       errorDevice = None)
     case DTSTimebase => BigInt(1000000)
     case JtagDTMKey => new JtagDTMConfig (
