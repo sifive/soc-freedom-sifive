@@ -13,10 +13,5 @@
         "commit": "d4db623ff534f775ffc49f59c4a9ef24d5d759d0",
         "name": "block-inclusivecache-sifive",
         "source": "git@github.com:sifive/block-inclusivecache-sifive.git"
-    },
-    {
-        "commit": "e5d463cd9d131033396a9d8921440abb55f114cd",
-        "name": "api-scala-sifive",
-        "source": "git@github.com:sifive/api-scala-sifive.git"
     }
 ]
