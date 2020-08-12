@@ -28,3 +28,8 @@ jobs:
        uses: sifive/environment-blockci-sifive/actions/wake@0.7.0
        with:
          command: -x 'makeRTL u500VC707DUTPlan | getDUTVsrcs | findFailFn getPathResult'
+
+     - name: Build U500 on VCU118
+       uses: sifive/environment-blockci-sifive/actions/wake@0.7.0
+       with:
+         command: -x 'makeRTL u500VCU118DUTPlan | getDUTVsrcs | findFailFn getPathResult'
