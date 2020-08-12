@@ -22,7 +22,7 @@ jobs:
      - name: Build E300 on Arty
        uses: sifive/environment-blockci-sifive/actions/wake@0.7.0
        with:
-         command: -x 'makeRTL e300ArtyDUTPlan | getDUTVsrcs | findFailFn getPathResult'
+         command: -vx 'makeRTL e300ArtyDUTPlan | getDUTVsrcs | findFailFn getPathResult'
 
    test-u500-vc707:
      name: Build U500 on VC707
@@ -37,7 +37,7 @@ jobs:
      - name: Build U500 on VC707
        uses: sifive/environment-blockci-sifive/actions/wake@0.7.0
        with:
-         command: -x 'makeRTL u500VC707DUTPlan | getDUTVsrcs | findFailFn getPathResult'
+         command: -vx 'makeRTL u500VC707DUTPlan | getDUTVsrcs | findFailFn getPathResult'
 
    test-u500-vcu118:
      name: Build U500 on VCU118
@@ -52,4 +52,4 @@ jobs:
      - name: Build U500 on VCU118
        uses: sifive/environment-blockci-sifive/actions/wake@0.7.0
        with:
-         command: -x 'makeRTL u500VCU118DUTPlan | getDUTVsrcs | findFailFn getPathResult'
+         command: -vx 'makeRTL u500VCU118DUTPlan | getDUTVsrcs | findFailFn getPathResult'
