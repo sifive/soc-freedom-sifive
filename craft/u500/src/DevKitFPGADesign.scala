@@ -114,8 +114,13 @@ class DevKitFPGADesign(wranglerNode: ClockAdapterNode, corePLL: PLLNode)(implici
   val maskROMParams = p(MaskROMLocated(location))
   val maskROMs = maskROMParams.map {MaskROM.attach(_, this, CBUS) }
 
-  val boot = BundleBridgeSource[UInt]()
-  tileResetVectorNexusNode := boot
+  val boot = if (maskROMs.isEmpty) {
+    None
+  } else {
+    val boot = BundleBridgeSource[UInt]()
+    tileResetVectorNexusNode := boot
+    Some(boot)
+  }
 
   override lazy val module = new U500VC707DevKitSystemModule(this)
 }
@@ -126,7 +131,7 @@ class U500VC707DevKitSystemModule[+L <: DevKitFPGADesign](_outer: L)
     with HasPeripheryDebugModuleImp
 {
   // Reset vector is set to the location of the mask rom
-  outer.boot.bundle := outer.maskROMParams.head.address.U
+  outer.boot.foreach { _.bundle := outer.maskROMParams.head.address.U }
 }
 
 // Allow frequency of the design to be controlled by the Makefile
