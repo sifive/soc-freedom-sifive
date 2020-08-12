@@ -25,7 +25,7 @@ global def u500ScalaModule =
 
 global def u500VC707DUTPlan =
   def name = "u500VC707DUTPlan"
-  def testharness = "sifive.fpgashells.shell.xilinx.VC707Shell"
+  def testharness = "sifive.fpgashells.shell.xilinx.VC707PCIeShell"
   def config = "sifive.freedom.unleashed.DevKitU500FPGADesign"
   def frequency = 50
   def scalaModule = u500ScalaModule
