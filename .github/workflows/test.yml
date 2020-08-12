@@ -9,8 +9,8 @@ on:
      - master
 
 jobs:
-   test-hca:
-     name: Build
+   test-e300-arty:
+     name: Build E300 on Arty
      runs-on: ubuntu-latest
 
      steps:
@@ -24,10 +24,30 @@ jobs:
        with:
          command: -x 'makeRTL e300ArtyDUTPlan | getDUTVsrcs | findFailFn getPathResult'
 
+   test-u500-vc707:
+     name: Build U500 on VC707
+     runs-on: ubuntu-latest
+
+     steps:
+     - name: Wit Init
+       uses: sifive/wit/actions/init@v0.13.2
+       with:
+         additional_packages: git@github.com:sifive/environment-blockci-sifive.git::0.7.0
+
      - name: Build U500 on VC707
        uses: sifive/environment-blockci-sifive/actions/wake@0.7.0
        with:
          command: -x 'makeRTL u500VC707DUTPlan | getDUTVsrcs | findFailFn getPathResult'
+
+   test-u500-vcu118:
+     name: Build U500 on VCU118
+     runs-on: ubuntu-latest
+
+     steps:
+     - name: Wit Init
+       uses: sifive/wit/actions/init@v0.13.2
+       with:
+         additional_packages: git@github.com:sifive/environment-blockci-sifive.git::0.7.0
 
      - name: Build U500 on VCU118
        uses: sifive/environment-blockci-sifive/actions/wake@0.7.0
