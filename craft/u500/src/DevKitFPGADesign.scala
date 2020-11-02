@@ -73,9 +73,9 @@ class DevKitFPGADesign(wranglerNode: ClockAdapterNode, corePLL: PLLNode)(implici
     overlay.place(UARTDesignInput(controller.ioNode))
   }
 
-  p(PeripherySPIKey).zip(p(SDIOOverlayKey)).foreach { case (params, overlay) =>
+  p(PeripherySPIKey).zip(p(SPIOverlayKey)).foreach { case (params, overlay) =>
     val controller = SPIAttachParams(params).attachTo(this)
-    overlay.place(SDIODesignInput(params, controller.ioNode))
+    overlay.place(SPIDesignInput(params, controller.ioNode))
 
     // Assuming MMC slot attached to SPIs. See TODO above.
     val mmc = new MMCDevice(controller.device)
