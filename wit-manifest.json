@@ -5,9 +5,9 @@
         "source": "git@github.com:sifive/api-generator-sifive.git"
     },
     {
-        "commit": "51ea4483804dbbda76f67035aa57325fa58789bd",
+        "commit": "337aa508c8d910355c63a6982e370aeaaa64b4a1",
         "name": "fpga-shells",
-        "source": "git@github.com:zizztux/fpga-shells.git"
+        "source": "git@github.com:sifive/fpga-shells.git"
     },
     {
         "commit": "d4db623ff534f775ffc49f59c4a9ef24d5d759d0",
