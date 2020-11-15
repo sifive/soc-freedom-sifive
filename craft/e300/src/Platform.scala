@@ -90,67 +90,66 @@ class E300ArtyDevKitPlatform(implicit val p: Parameters) extends Module {
   //-----------------------------------------------------------------------
   // Default Pin connections before attaching pinmux
 
-  for (iof_0 <- sys.gpio(0).iof_0.get) {
-    iof_0.default()
-  }
-
-  for (iof_1 <- sys.gpio(0).iof_1.get) {
-    iof_1.default()
+  sys.iof(0).foreach { iof =>
+    iof.iof_0.foreach { _.default() }
+    iof.iof_1.foreach { _.default() }
   }
 
   //-----------------------------------------------------------------------
 
-  val iof_0 = sys.gpio(0).iof_0.get
-  val iof_1 = sys.gpio(0).iof_1.get
+  sys.iof(0).foreach { iof =>
+    val iof_0 = iof.iof_0
+    val iof_1 = iof.iof_1
 
-  // SPI1 (0 is the dedicated)
-  BasePinToIOF(spi_pins(0).cs(0), iof_0(2))
-  BasePinToIOF(spi_pins(0).dq(0), iof_0(3))
-  BasePinToIOF(spi_pins(0).dq(1), iof_0(4))
-  BasePinToIOF(spi_pins(0).sck,   iof_0(5))
-  BasePinToIOF(spi_pins(0).dq(2), iof_0(6))
-  BasePinToIOF(spi_pins(0).dq(3), iof_0(7))
-  BasePinToIOF(spi_pins(0).cs(1), iof_0(8))
-  BasePinToIOF(spi_pins(0).cs(2), iof_0(9))
-  BasePinToIOF(spi_pins(0).cs(3), iof_0(10))
+    // SPI1 (0 is the dedicated)
+    BasePinToIOF(spi_pins(0).cs(0), iof_0(2))
+    BasePinToIOF(spi_pins(0).dq(0), iof_0(3))
+    BasePinToIOF(spi_pins(0).dq(1), iof_0(4))
+    BasePinToIOF(spi_pins(0).sck,   iof_0(5))
+    BasePinToIOF(spi_pins(0).dq(2), iof_0(6))
+    BasePinToIOF(spi_pins(0).dq(3), iof_0(7))
+    BasePinToIOF(spi_pins(0).cs(1), iof_0(8))
+    BasePinToIOF(spi_pins(0).cs(2), iof_0(9))
+    BasePinToIOF(spi_pins(0).cs(3), iof_0(10))
 
-  // SPI2
-  BasePinToIOF(spi_pins(1).cs(0), iof_0(26))
-  BasePinToIOF(spi_pins(1).dq(0), iof_0(27))
-  BasePinToIOF(spi_pins(1).dq(1), iof_0(28))
-  BasePinToIOF(spi_pins(1).sck,   iof_0(29))
-  BasePinToIOF(spi_pins(1).dq(2), iof_0(30))
-  BasePinToIOF(spi_pins(1).dq(3), iof_0(31))
+    // SPI2
+    BasePinToIOF(spi_pins(1).cs(0), iof_0(26))
+    BasePinToIOF(spi_pins(1).dq(0), iof_0(27))
+    BasePinToIOF(spi_pins(1).dq(1), iof_0(28))
+    BasePinToIOF(spi_pins(1).sck,   iof_0(29))
+    BasePinToIOF(spi_pins(1).dq(2), iof_0(30))
+    BasePinToIOF(spi_pins(1).dq(3), iof_0(31))
 
-  // I2C
-  if (p(PeripheryI2CKey).length == 1) {
-    BasePinToIOF(i2c_pins(0).sda, iof_0(12))
-    BasePinToIOF(i2c_pins(0).scl, iof_0(13))
+    // I2C
+    if (p(PeripheryI2CKey).length == 1) {
+      BasePinToIOF(i2c_pins(0).sda, iof_0(12))
+      BasePinToIOF(i2c_pins(0).scl, iof_0(13))
+    }
+
+    // UART0
+    BasePinToIOF(uart_pins(0).rxd, iof_0(16))
+    BasePinToIOF(uart_pins(0).txd, iof_0(17))
+
+    // UART1
+    BasePinToIOF(uart_pins(1).rxd, iof_0(24))
+    BasePinToIOF(uart_pins(1).txd, iof_0(25))
+
+    //PWM
+    BasePinToIOF(pwm_pins(0).pwm(0), iof_1(0) )
+    BasePinToIOF(pwm_pins(0).pwm(1), iof_1(1) )
+    BasePinToIOF(pwm_pins(0).pwm(2), iof_1(2) )
+    BasePinToIOF(pwm_pins(0).pwm(3), iof_1(3) )
+
+    BasePinToIOF(pwm_pins(1).pwm(1), iof_1(19))
+    BasePinToIOF(pwm_pins(1).pwm(0), iof_1(20))
+    BasePinToIOF(pwm_pins(1).pwm(2), iof_1(21))
+    BasePinToIOF(pwm_pins(1).pwm(3), iof_1(22))
+
+    BasePinToIOF(pwm_pins(2).pwm(0), iof_1(10))
+    BasePinToIOF(pwm_pins(2).pwm(1), iof_1(11))
+    BasePinToIOF(pwm_pins(2).pwm(2), iof_1(12))
+    BasePinToIOF(pwm_pins(2).pwm(3), iof_1(13))
   }
-
-  // UART0
-  BasePinToIOF(uart_pins(0).rxd, iof_0(16))
-  BasePinToIOF(uart_pins(0).txd, iof_0(17))
-
-  // UART1
-  BasePinToIOF(uart_pins(1).rxd, iof_0(24))
-  BasePinToIOF(uart_pins(1).txd, iof_0(25))
-
-  //PWM
-  BasePinToIOF(pwm_pins(0).pwm(0), iof_1(0) )
-  BasePinToIOF(pwm_pins(0).pwm(1), iof_1(1) )
-  BasePinToIOF(pwm_pins(0).pwm(2), iof_1(2) )
-  BasePinToIOF(pwm_pins(0).pwm(3), iof_1(3) )
-
-  BasePinToIOF(pwm_pins(1).pwm(1), iof_1(19))
-  BasePinToIOF(pwm_pins(1).pwm(0), iof_1(20))
-  BasePinToIOF(pwm_pins(1).pwm(2), iof_1(21))
-  BasePinToIOF(pwm_pins(1).pwm(3), iof_1(22))
-
-  BasePinToIOF(pwm_pins(2).pwm(0), iof_1(10))
-  BasePinToIOF(pwm_pins(2).pwm(1), iof_1(11))
-  BasePinToIOF(pwm_pins(2).pwm(2), iof_1(12))
-  BasePinToIOF(pwm_pins(2).pwm(3), iof_1(13))
 
   //-----------------------------------------------------------------------
   // Drive actual Pads
